@@ -1,12 +1,7 @@
 board=[[0,0,0],[0,0,0],[0,0,0]]
 
-C1=[board[0][0],board[1][0],board[2][0]]
-C2=[board[0][1],board[1][1],board[2][1]]
-C3=[board[0][2],board[1][2],board[2][2]]
-D1=[board[0][0],board[1][1],board[2][2]]
-D2=[board[0][2],board[1][1],board[2][0]]
-
-inviboard=[board[0],board[1],board[2],C1,C2,C3,D1,D2]
+inviboard=[board[0],board[1],board[2],[board[0][0],board[1][0],board[2][0]],[board[0][1],board[1][1],board[2][1]],
+           [board[0][2],board[1][2],board[2][2]],[board[0][0],board[1][1],board[2][2]],[board[0][2],board[1][1],board[2][0]]]
 player=2
 playstop=0
 
@@ -26,11 +21,6 @@ while playstop==0:
         board[selrow][selcol]=1
     else:
         board[selrow][selcol]=2
-    C1=[board[0][0],board[1][0],board[2][0]]
-    C2=[board[0][1],board[1][1],board[2][1]]
-    C3=[board[0][2],board[1][2],board[2][2]]
-    D1=[board[0][0],board[1][1],board[2][2]]
-    D2=[board[0][2],board[1][1],board[2][0]]
     for n in board:
         print(n)
     for k in range(0,8):
