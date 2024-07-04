@@ -1,7 +1,13 @@
 board=[[0,0,0],[0,0,0],[0,0,0]]
+inviboard=[[],[],[],[],[],[],[],[]]
 
-inviboard=[board[0],board[1],board[2],[board[0][0],board[1][0],board[2][0]],[board[0][1],board[1][1],board[2][1]],
-           [board[0][2],board[1][2],board[2][2]],[board[0][0],board[1][1],board[2][2]],[board[0][2],board[1][1],board[2][0]]]
+def updateinviboard(inviboard):
+    inviboard=[board[0],board[1],board[2],[board[0][0],board[1][0],board[2][0]],[board[0][1],board[1][1],board[2][1]],
+    [board[0][2],board[1][2],board[2][2]],[board[0][0],board[1][1],board[2][2]],[board[0][2],board[1][1],board[2][0]]]
+    return inviboard
+
+inviboard=updateinviboard(inviboard)
+
 player=2
 playstop=0
 
@@ -10,6 +16,7 @@ for i in board:
     print(i)
 
 while playstop==0:
+    
     player=(player%2)+1
     if player==1:
         print("P1 TURN")
@@ -21,6 +28,7 @@ while playstop==0:
         board[selrow][selcol]=1
     else:
         board[selrow][selcol]=2
+    inviboard=updateinviboard(inviboard)
     for n in board:
         print(n)
     for k in range(0,8):
@@ -29,5 +37,5 @@ while playstop==0:
 
 if player==1:
     print("P1 WINS")
-else:
+else: 
     print("P2 WINS")
