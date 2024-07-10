@@ -1,3 +1,5 @@
+#this is tictactoe with an ai opponent(wip)
+
 board=[[0,0,0],[0,0,0],[0,0,0]]
 inviboard=[[],[],[],[],[],[],[],[]]
 
