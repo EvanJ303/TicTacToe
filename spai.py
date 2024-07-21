@@ -22,8 +22,15 @@ while playstop==0:
     player=(player%2)+1
     if player==1:
         print("P1 TURN")
-        selrow=int(input("SELECT ROW"))
-        selcol=int(input("SELECT COLUMN"))
+        updateinviboard(inviboard)
+        not_taken=0
+        while not_taken==0:
+            selrow=int(input("SELECT ROW"))
+            selcol=int(input("SELECT COLUMN"))
+            if board[selrow][selcol]==0:
+                not_taken=1
+            else:
+                print("INVALID COORDS")
     else:
         print("BOT'S TURN")
         skipremaining=0
@@ -113,8 +120,19 @@ while playstop==0:
     for k in range(0,8):
         if inviboard[k]==[1,1,1] or inviboard[k]==[2,2,2]:
             playstop=1
+    if playstop==0:
+        draw_check=1
+        for i in range(0,3):
+            for k in range(0,3):
+                if board[i][k]==0:
+                    draw_check=0
+    if draw_check==1:
+        playstop=1
 
-if player==1:
-    print("P1 WINS")
-else: 
-    print("BOT WINS")
+if draw_check==1:
+    print("DRAW")
+else:
+    if player==1:
+        print("P1 WINS")
+    else: 
+        print("BOT WINS")
